@@ -4,4 +4,4 @@ SELECT name FROM movie ;
 
 SELECT id, poster FROM movie ;
 
-SELECT poster, comment as comment_movie from movie ;
+SELECT poster, comment AS comment_movie FROM movie ;
