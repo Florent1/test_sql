@@ -13,14 +13,15 @@ mysql> SELECT * FROM `wizard` WHERE is_muggle=0 AND birthdate BETWEEN '1975-01-0
 7 rows in set (0.00 sec)
 
 
-mysql> SELECT firstname, lastname FROM wizard WHERE lastname='potter' ORDER BY firstname;
-+-----------+----------+
-| firstname | lastname |
-+-----------+----------+
-| harry     | potter   |
-| lily      | potter   |
-+-----------+----------+
+mysql> SELECT firstname FROM wizard WHERE firstname LIKE 'h%';
++-----------+
+| firstname |
++-----------+
+| harry     |
+| hermione  |
++-----------+
 2 rows in set (0.00 sec)
+
 
 
 mysql> SELECT firstname, lastname FROM wizard WHERE lastname='potter' ORDER BY firstname;
