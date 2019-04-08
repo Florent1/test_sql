@@ -28,3 +28,23 @@ ORDER BY team.name ASC;
 | Slytherin  |
 +------------+
 3 rows in set (0.00 sec)
+
+mysql> SELECT wizard.lastname, wizard.firstname, player.enrollment_date as date 
+FROM player 
+INNER JOIN wizard ON  player.wizard_id=wizard.id 
+INNER JOIN team ON player.team_id=team.id 
+WHERE team.name='Gryffindor' 
+HAVING DAYOFWEEK(date)=2 
+ORDER BY date;
++------------+-----------+------------+
+| lastname   | firstname | date       |
++------------+-----------+------------+
+| Weasley    | George    | 1991-08-26 |
+| Longbottom | Alice     | 1992-02-17 |
+|            | Cadogan   | 1993-01-04 |
+| Gryffindor | Godric    | 1993-08-30 |
+| Black      | Sirius    | 1994-01-10 |
+| Dumbledore | Aberforth | 1995-04-24 |
+| Longbottom | Augusta   | 1999-10-25 |
++------------+-----------+------------+
+7 rows in set (0.00 sec)
