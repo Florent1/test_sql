@@ -1,0 +1,30 @@
+mysql> SELECT team.name, 
+    -> COUNT(player.id) as nb_player 
+    -> FROM player 
+    -> INNER JOIN team ON player.team_id=team.id 
+    -> GROUP BY team.name 
+    -> ORDER BY nb_player DESC;
++------------+-----------+
+| name       | nb_player |
++------------+-----------+
+| Gryffindor |        36 |
+| Slytherin  |        21 |
+| Ravenclaw  |        15 |
+| Hufflepuff |        12 |
++------------+-----------+
+4 rows in set (0.00 sec)
+
+mysql> SELECT team.name 
+FROM player 
+INNER JOIN team ON player.team_id=team.id 
+GROUP BY team.name 
+HAVING COUNT(player.id) >= 14  
+ORDER BY team.name ASC;
++------------+
+| name       |
++------------+
+| Gryffindor |
+| Ravenclaw  |
+| Slytherin  |
++------------+
+3 rows in set (0.00 sec)
